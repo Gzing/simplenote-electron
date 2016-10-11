@@ -479,6 +479,7 @@ export const App = connect( mapStateToProps, mapDispatchToProps )( React.createC
 			isAuthorized,
 			selectedCollection,
 		} = this.props;
+
 		const electron = get( this.state, 'electron' );
 		const { settings, isSmallScreen } = this.props;
 		const filteredNotes = this.filterNotes();
@@ -535,7 +536,7 @@ export const App = connect( mapStateToProps, mapDispatchToProps )( React.createC
 									</button>
 									<SearchField
 										onSearch={this.onSearch}
-										placeholder={state.listTitle}
+										placeholder={ selectedCollection }
 										searchFocus={state.searchFocus}
 										onSearchFocused={this.onSearchFocused} />
 									<button title="New Note" className="button button-borderless" disabled={state.showTrash} onClick={this.onNewNote}>
